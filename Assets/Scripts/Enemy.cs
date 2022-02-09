@@ -18,7 +18,11 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        Vector3 direction = (player.transform.position - transform.position).normalized;
-        enemyRigidbody.AddForce(direction * speed);
+        
+    }
+
+    private void SpawnBullet()
+    {
+        //instantiate()
     }
 }
