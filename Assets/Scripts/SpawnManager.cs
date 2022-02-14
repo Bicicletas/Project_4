@@ -6,18 +6,27 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject enemy;
     public GameObject powerUp;
-    private float startSpawn = 2f;
-    private float repeatRate = 4f;
+    private float spawnPosRange = 9f;
+    private int enemiesPerWave = 1;
+    private int enemiesLeft;
+
     // Start is called before the first frame update
     void Start()
     {
-        SpawnEnemyWave(5);
+        Instantiate(powerUp, RandomSpawnPos(), powerUp.transform.rotation);
+        SpawnEnemyWave(enemiesPerWave);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        enemiesLeft = FindObjectsOfType<Enemy>().Length;
+        if (enemiesLeft <= 0)
+        {
+            enemiesPerWave++;
+            SpawnEnemyWave(enemiesPerWave);
+            Instantiate(powerUp, RandomSpawnPos(), powerUp.transform.rotation);
+        }
     }
     private Vector3 RandomSpawnPos()
     {
