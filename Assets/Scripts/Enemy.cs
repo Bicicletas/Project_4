@@ -20,11 +20,20 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+<<<<<<< HEAD
         Vector3 direction = (player.transform.position - transform.position).normalized;
         enemyRigidbody.AddForce(direction * speed);
         if (transform.position.y < minHight)
         {
             Destroy(gameObject);
         }
+=======
+        
+    }
+
+    private void SpawnBullet()
+    {
+        //instantiate()
+>>>>>>> baec9e8b4e4f3100614b23cd0beaf91cc47937bf
     }
 }
